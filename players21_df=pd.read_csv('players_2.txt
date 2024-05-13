@@ -1,0 +1,48 @@
+Sorting players according to their Overall rating
+
+player_highest_overall_df=players22_df[['short_name','overall_x','potential_x','age','nationality_name','club_name','preferred_foot']].copy()
+player_highest_overall_df=player_highest_overall_df.sort_values('overall_x',ascending=False)
+player_highest_overall_df
+
+
+
+
+top_10_overall_df=player_highest_overall_df.head(10)
+top_10_overall_df
+
+
+
+Sorting players with highest potential
+
+player_highest_potential_df=players22_df[['short_name','potential_x','overall_y','age','nationality_name','club_name','preferred_foot']].copy()
+player_highest_potential_df=player_highest_potential_df.sort_values('potential_x',ascending=False)
+player_highest_potential_df
+
+
+
+##Top 10 players with highest potential rating
+top_10_potential_df=player_highest_potential_df.head(10)
+top_10_potential_df
+
+
+
+Bar chart for players with difference in their overall rating from last year
+
+here overall_x - represents overall rating of year 2022
+here overall_y - represents overall rating of year 2021
+
+
+
+combined_df=players22_df[['short_name','overall_x','overall_y']]
+combined_df
+
+
+combined_df.plot(kind='barh',figsize=(15,10))
+plt.title('Overall rating 2022 vs Overall rating 2021 ',fontsize=25)
+plt.xlim(0,110,10)
+plt.xlabel('Rating')
+plt.ylabel('Name')
+plt.legend();
+
+
+
